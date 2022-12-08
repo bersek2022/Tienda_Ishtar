@@ -1,5 +1,4 @@
 
-
 package com.emergentes.controlador;
 
 import com.emergentes.utiles.Validate;
@@ -43,8 +42,9 @@ public class loginController extends HttpServlet {
             if(v.chekUser(correo, password)){
                 HttpSession ses=request.getSession();
                 ses.setAttribute("login","OK");
-                response.sendRedirect("ControladorCategoria");
                 System.out.println("login ok");
+                response.sendRedirect("index.jsp");
+                
             }else{
                 //System.out.println("Incorrecto");
                 response.sendRedirect("login.jsp");

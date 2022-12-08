@@ -1,5 +1,4 @@
 
-
 package com.emergentes.utiles;
 
 import java.sql.Connection;
@@ -18,7 +17,7 @@ public class Validate extends ConexionBD{
        boolean resultado=false;
         try{
         
-        String sql="select *  from clientes where correo=? and password= shal(?)";
+        String sql="select *  from usuarios where correo=? and password= ?";
         
         ps=conn.prepareStatement(sql);
         ps.setString(1, correo);
@@ -26,7 +25,7 @@ public class Validate extends ConexionBD{
         ResultSet rs= ps.executeQuery();
         resultado=rs.next();
        }catch(Exception ex){
-           Logger.getLogger(Validate.class.getName()).log(Level.SEVERE, null , ex);
+          System.out.println("ERROR AL AUTENTIFICAR");
        }
         return resultado;
     }
